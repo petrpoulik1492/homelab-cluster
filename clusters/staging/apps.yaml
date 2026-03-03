@@ -7,7 +7,7 @@ spec:
   interval: 10m0s
   # dependsOn:
   #   - name: infra-configs
-  retry-interval: 1m
+  retryinterval: 1m
   timeout: 5m
   sourceRef: 
     kind: GitRepository
