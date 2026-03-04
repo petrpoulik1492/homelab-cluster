@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: linkding
@@ -18,9 +18,9 @@ spec:
           ports:
             - containerPort: 9090
 
-      volumeMounts:
-        - name: linkding-data
-          mountPath: /etc/linkding/data
+          volumeMounts:
+            name: linkding-data
+            - mountPath: /etc/linkding/data
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
