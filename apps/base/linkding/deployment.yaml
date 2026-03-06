@@ -24,6 +24,6 @@ spec:
      volumes:
        - name: linkding-data
          emptyDir:
-           sizeLimit: 1Gb
+           sizeLimit: 1Gi
          persistentVolumeClaim:
            claimName: linkding-data-pvc                 
