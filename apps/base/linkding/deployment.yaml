@@ -23,5 +23,7 @@ spec:
              mountPath: /etc/linkding/data
      volumes:
        - name: linkding-data
+         emptyDir:
+           sizeLimit: 1Gb
          persistentVolumeClaim:
            claimName: linkding-data-pvc                 
