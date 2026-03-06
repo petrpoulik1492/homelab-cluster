@@ -10,14 +10,14 @@ spec:
       app: linkding  
   template:  
     metadata:  
-      matchLabels:  
+      labels:  
         app: linkding  
     spec:  
       containers:  
         - name: linkding  
-        image: sissbruecker/linkding:1.31.0  
-        ports:  
-          - containerPort: 9090
+          image: sissbruecker/linkding:1.31.0  
+          ports:  
+            - containerPort: 9090
 
             #        volumeMounts:
             #          - name: linkding-data
