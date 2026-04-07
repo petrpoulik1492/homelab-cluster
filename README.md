@@ -1,4 +1,4 @@
-This repository is my real-time homelab project based on Flux Push-based deployment and GitOps principles to manage like in a real-like environments.
+This repository is my real-time homelab project based on Flux Push-based deployment and GitOps principles to manage like in a production environments.
 
 What is it going to look like once finished:
 Control Plane: Raspberry Pi (This is great mainly in cost effeciency)
