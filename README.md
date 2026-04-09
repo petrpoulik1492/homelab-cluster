@@ -1,4 +1,4 @@
-This repository is my real-time homelab project based on Flux Push-based deployment and GitOps principles to manage like in a production environments.
+This repository is my real-time homelab project based on Flux Push-based deployment and GitOps principles to manage like in a production environments managed by Flux
 
 What is it going to look like on hardware side once finished:
 
