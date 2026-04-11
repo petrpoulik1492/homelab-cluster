@@ -11,6 +11,11 @@ service:
   annotations:
     cloudflared-access: "true"
 
+igress:
+  - hostname: homarr.petrpoulik1492.com
+    service: http://localhost:8080
+  - service: http_status:404
+
 resources:
   requests:
     cpu: 50m
