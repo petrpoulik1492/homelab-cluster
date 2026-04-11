@@ -17,9 +17,9 @@ spec:
     replicaCount: 1
 
     image:
-      registry: ghcr.io
+      registry: docker.io
       repository: bitnami/nginx
-      tag: 1.25.2-debian-11-r37
+      tag: "1.25.2"
       pullPolicy: IfNotPresent
 
     service:
