@@ -22,10 +22,6 @@ spec:
     remediation:
       retries: 3
 
-upgrade:
-  remediation:
-    retries: 3
-
   upgrade:
     crds: CreateReplace
     remediation:
