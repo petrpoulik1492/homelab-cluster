@@ -13,7 +13,7 @@ service:
 
 igress:
   - hostname: homarr.petrpoulik1492.com
-    service: http://localhost:8080
+    service: http://localhost:7575
   - service: http_status:404
 
 resources:
