@@ -1,13 +1,55 @@
 replicaCount: 1
-service:
-  type: LoadBalancer
-  port: 80
-database:
-  encryption:
-    enabled: false
-persistence:
-  homarrDatabase:
-    enabled: true
-    storageClassName: default
-    size: 1Gi
 
+image:
+  repository: ghcr.io/ajnart/homarr
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP 
+  port: 7575
+  annotations:
+    cloudflared-access: "true"
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  storageClassName: ""   # use default SC
+
+env:
+  TZ: Europe/Prague
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+
+podSecurityContext:
+  fsGroup: 1000
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 5
+
+autoscaling:
+  enabled: false
