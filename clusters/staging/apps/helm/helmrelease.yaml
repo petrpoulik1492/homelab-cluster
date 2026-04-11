@@ -15,5 +15,5 @@ spec:
         namespace: helm 
   values:
     service:
-      type: ClusterIP
+      type: NodePort 
     replicaCount: 1
