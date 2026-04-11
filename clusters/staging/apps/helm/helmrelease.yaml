@@ -17,9 +17,10 @@ spec:
     replicaCount: 1
 
     image:
-      registry: docker.io
+      registry: ghcr.io
       repository: bitnami/nginx
       tag: 1.25.2-debian-11-r37
+      pullPolicy: IfNotPresent
 
     service:
       type: NodePort
