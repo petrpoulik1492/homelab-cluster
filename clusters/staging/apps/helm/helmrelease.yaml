@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: helm-traefik
+  name: traefik
   namespace: helm
 spec:
   interval: 15m
@@ -22,16 +22,21 @@ spec:
     remediation:
       retries: 3
 
+upgrade:
+  remediation:
+    retries: 3
+
   upgrade:
     crds: CreateReplace
     remediation:
       retries: 3
     cleanupOnFail: true
-    strategy: rollback
 
   values:
     deployment:
       replicas: 2
+    ingressClass:
+      enabled: false
 
     ports:
       web:
