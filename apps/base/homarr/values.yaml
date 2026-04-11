@@ -11,10 +11,13 @@ service:
   annotations:
     cloudflared-access: "true"
 
-igress:
+ingress:
   - hostname: homarr.petrpoulik1492.com
     service: http://localhost:7575
   - service: http_status:404
+
+annotations:
+  cloudflared-access: "true"
 
 resources:
   requests:
