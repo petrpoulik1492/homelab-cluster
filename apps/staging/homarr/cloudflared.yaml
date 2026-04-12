@@ -28,7 +28,7 @@ spec:
       volumes:
         - name: creds
           secret:
-            - secretName: db-encryption
+            secretName: db-encryption
 
         - name: config
           configMap:
