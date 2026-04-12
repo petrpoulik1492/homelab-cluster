@@ -4,5 +4,4 @@ namespace: homarr
 resources:
   - ../../base/homarr/
   - cloudflared.yaml
-  - cloudflared-config.yaml
   - db-encryption.yaml
