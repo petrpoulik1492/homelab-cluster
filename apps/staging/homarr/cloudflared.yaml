@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflared-homarr
+  namespace: homarr 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflared-homarr
+  template:
+    metadata:
+      labels:
+        app: cloudflared-homarr
+    spec:
+      containers:
+        - name: cloudflared
+          image: cloudflare/cloudflared:latest
+          args:
+            - tunnel
+            - --config
+            - /etc/cloudflared/config.yaml
+            - run
+          volumeMounts:
+            - name: config
+              mountPath: /etc/cloudflared
+              readOnly: true
+      volumes:
+        - name: config
+          projected:
+            sources:
+            - configMap:
+                name: cloudflared-config
+            - secret:
+                name: db-encryption

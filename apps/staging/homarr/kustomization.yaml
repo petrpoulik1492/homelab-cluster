@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: homarr
 resources:
   - ../../base/homarr/
-  - cloudflare.yaml
+  - cloudflared.yaml
+  - cloudflared-config.yaml
   - db-encryption.yaml
