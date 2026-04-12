@@ -24,4 +24,4 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: db-encryption
-                  key: tunnel-token
+                  key: db-encryption-key 
