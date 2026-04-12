@@ -1,7 +1,0 @@
-tunnel: 5622ead7-d7dc-481a-b47b-3e148da37c31 
-credentials-file: /etc/cloudflared/credentials.json
-
-ingress:
-  - hostname: homarr.petrpoulik1492.com 
-    service: http://homarr.homarr.svc.cluster.local:7575
-  - service: http_status:40
