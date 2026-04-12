@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflared
+  namespace: homarr 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflared
+  template:
+    metadata:
+      labels:
+        app: cloudflared
+    spec:
+      containers:
+        - name: cloudflared
+          image: cloudflare/cloudflared:latest
+          args:
+            - tunnel
+            - --config
+            - /etc/cloudflared/config/config.yaml
+            - run
+          volumeMounts:
+            - name: config
+              mountPath: /etc/cloudflared/config
+              readOnly: true
+      volumes:
+        - name: creds
+          secret:
+            secretName: db-encryption
+
+        - name: config
+          configMap:
+            name: cloudflared
+            items:
+            - key: config.yaml
+              path: config.yaml
+
+                #        - name: config
+                #          projected:
+                #            sources:
+                #            - configMap:
+                #                name: cloudflared-config
+                #            - secret:
+                #                name: db-encryption
+---
+# This ConfigMap defines the cloudflared config.yaml file in k8s.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflared
+data:
+  config.yaml: |
+    # Name of the tunnel that is run
+
+    tunnel: homarr
+
+    credentials-file: /etc/cloudflared/creds/credentials.json
+
+    # Serves the metrics server under /metrics and the readiness server under /ready
+    metrics: 0.0.0.0:2000
+    no-autoupdate: true
+
+    ingress:
+    - hostname: homarr.petrpoulik1492.com
+      service: http://homarr:7575
+
+    # This rule sends traffic to the built-in hello-world HTTP server. This can help debug connectivity
+    # issues. If hello.example.com resolves and tunnel.example.com does not, then the problem is
+    # in the connection from cloudflared to local service, not from the internet to cloudflared.
+    - hostname: hello.example.com
+      service: hello_world
+    # This rule matches any traffic which didn't match a previous rule, and responds with HTTP 404.
+    - service: http_status:404
