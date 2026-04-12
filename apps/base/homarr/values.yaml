@@ -28,10 +28,11 @@ resources:
     memory: 512Mi
 
 persistence:
-  enabled: true
-  accessMode: ReadWriteOnce
-  size: 1Gi
-  storageClassName: ""   # use default SC
+  homarrDatabase:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClassName: "default"
 
 env:
   TZ: Europe/Prague
