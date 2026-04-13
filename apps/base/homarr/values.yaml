@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: ghcr.io/ajnart/homarr
@@ -32,7 +32,8 @@ persistence:
     enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
-    storageClassName: "default"
+    storageClass: ""
+    existingClaim: ""
 
 env:
   TZ: Europe/Prague
