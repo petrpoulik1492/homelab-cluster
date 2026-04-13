@@ -12,15 +12,6 @@ image:
   # -- Overrides the image tag whose default is the chart appVersion
   tag: "0.16.0"
 
-volumeMounts:
-  - name: homarr-data
-    mountPath: /app/database
-
-volumes:
-  - name: homarr-data
-    persistentVolumeClaim:
-      claimName: homarr-pvc
-      
 env:
   # -- Your local time zone
   TZ: "Europe/Paris"
@@ -166,7 +157,7 @@ autoscaling:
 persistence:
   - name: homarr-config
     # -- Enable homarr-config persistent storage
-    enabled: false
+    enabled: true
     # -- homarr-config storage class name
     storageClassName: "local-path"
     # -- homarr-config access mode
@@ -177,7 +168,7 @@ persistence:
     mountPath: "/app/data/configs"
   - name: homarr-database
     # -- Enable homarr-database persistent storage
-    enabled: false
+    enabled: true
     # -- homarr-database storage class name
     storageClassName: "local-path"
     # -- homarr-database access mode
@@ -188,7 +179,7 @@ persistence:
     mountPath: "/app/database"
   - name: homarr-icons
     # -- Enable homarr-icons persistent storage
-    enabled: false
+    enabled: true
     # -- homarr-icons storage class name
     storageClassName: "local-path"
     # -- homarr-icons access mode
