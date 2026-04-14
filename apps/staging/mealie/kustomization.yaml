@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: mealie 
 resources:
   - cloudflared.yaml
-  - cloudflare-secret.yaml
+  - cloudflared-secret.yaml
