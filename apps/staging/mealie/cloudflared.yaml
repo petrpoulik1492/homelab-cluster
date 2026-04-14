@@ -59,7 +59,7 @@ data:
     no-autoupdate: true
     ingress:
     - hostname: mealie.petrpoulik1492.com
-      service: http://mealie:909
+      service: http://mealie:9090
     - hostname: hello.example.com
       service: hello_world
     - service: http_status:404
