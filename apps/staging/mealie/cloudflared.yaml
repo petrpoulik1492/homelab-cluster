@@ -38,7 +38,7 @@ spec:
       volumes:
         - name: creds
           secret:
-            secretName: tunnel-credentials 
+            secretName: mealie-tunnel-credentials 
         - name: config
           configMap:
             name: cloudflared
@@ -59,7 +59,7 @@ data:
     no-autoupdate: true
     ingress:
     - hostname: mealie.petrpoulik1492.com
-      service: http://mealie.mealie.svc.cluster.local:80 
+      service: http://mealie:9000 
     - hostname: hello.example.com
       service: hello_world
     - service: http_status:404
