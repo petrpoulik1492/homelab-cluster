@@ -79,7 +79,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 # -- Pod annotations
-podAnnotations: {}
+podAnnotations:
+  rollme: "1"
 # -- Pod labels
 podLabels: {}
 
