@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: audiobookshelf-config
+  namespace: audiobookshelf
+  labels:
+    app: audiobookshelf
+data:
+  # General
+  TZ: "Europe/Prague"
+  PORT: "3005"
+  # Paths inside the container
+  AUDIOBOOKSHELF_CONFIG_PATH: "/config"
+  AUDIOBOOKSHELF_METADATA_PATH: "/metadata"
+  AUDIOBOOKSHELF_AUDIOBOOKS_PATH: "/audiobooks"
+  AUDIOBOOKSHELF_PODCASTS_PATH: "/podcasts"
+  # Optional
+  AUDIOBOOKSHELF_LOG_LEVEL: "info"
+  # Reverse proxy as it will be configured with cloudflare
+  TRUST_PROXY: "true"
