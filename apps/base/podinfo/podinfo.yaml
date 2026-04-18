@@ -193,7 +193,7 @@ metadata:
 spec:
   containers:
     - name: curl
-      image: curlimages/curl:7.69.0
+      image: curlimages/curl:8.19.0
       command:
         - sh
         - -c
