@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: audiobookshelf 
+  name: audiobookshelf
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: audiobookshelf 
+      app: audiobookshelf
   template:
     metadata:
       labels:
@@ -18,37 +18,36 @@ spec:
         runAsGroup: 33 # www-data group ID
 
       containers:
-        - name: audiobookshelf 
+        - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:2.33.1
           ports:
-            - containerPort: 3005 
-          
+            - containerPort: 3005
           envFrom:
             - configMapRef:
-                name: audiobookshelf-config
+                name: configmap 
             - secretRef:
-                name: audiobookshelf-container-env        
-          
+                name: audiobookshelf-container-env   
           securityContext:
             allowPrivilegeEscalation: false
 
           volumeMounts:
-            - name: audiobookshelf
-            mountPath: /etc/audiobookshelf/data
-            subPath: data
-            - name: audiobookshelf
-            mountPath: /etc/audiobookshelf/config
-            subPath: config
-            - name: audiobookshelf
-            mountPath: /etc/audiobookshelf/metadata
-            subPath: metadata
-            - name: audiobookshelf
-            mountPath: /etc/audiobookshelf/audiobooks
-            subPath: audiobooks
-            - name: audiobookshelf
-            mountPath: /etc/audiobookshelf/podcasts
-     
+            - name: data 
+              mountPath: /etc/audiobookshelf/data
+              subPath: data 
+            - name: data 
+              mountPath: /etc/audiobookshelf/config
+              subPath: config 
+            - name: data 
+              mountPath: /etc/audiobookshelf/metadata
+              subPath: metadata 
+            - name: data 
+              mountPath: /etc/audiobookshelf/audiobooks
+              subPath: audiobooks 
+            - name: data 
+              mountPath: /etc/audiobookshelf/podcasts
+              subPath: podcasts 
+      
       volumes:
-       - name: data
-         persistentVolumeClaim:
-           claimName: audiobookshelf-data-pvc
+        - name: data
+          persistentVolumeClaim:
+            claimName: audiobookshelf-data-pvc
