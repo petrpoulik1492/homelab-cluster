@@ -8,6 +8,6 @@ secretGenerator:
   - name: renovate-container-env
     namespace: renovate
     envs:
-      - renovate-container-env.env
+      - renovate-container-env
     options:
       disableNameSuffixHash: true 
