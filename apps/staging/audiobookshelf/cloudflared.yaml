@@ -41,7 +41,7 @@ spec:
             secretName: tunnel-credentials 
         - name: config
           configMap:
-            name: cloudflared
+            name: cloudflared-container-env
             items:
               - key: config.yaml
                 path: config.yaml
