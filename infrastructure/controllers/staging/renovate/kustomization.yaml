@@ -3,11 +3,4 @@ kind: Kustomization
 namespace: renovate 
 resources:
   - ../../base/renovate/
-
-secretGenerator:
-  - name: renovate-container-env
-    namespace: renovate
-    envs:
-      - renovate-container-env
-    options:
-      disableNameSuffixHash: true 
+  - renovate-container-env.yaml
