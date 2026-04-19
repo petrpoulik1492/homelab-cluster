@@ -24,7 +24,7 @@ spec:
             - containerPort: 3005
           envFrom:
             - configMapRef:
-                name: audiobookshelf 
+                name: audiobookshelf-configmap 
             - secretRef:
                 name: audiobookshelf-container-env   
           securityContext:

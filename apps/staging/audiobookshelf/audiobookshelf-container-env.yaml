@@ -3,7 +3,7 @@ data:
     credentials.json: ENC[AES256_GCM,data:X2i5+Q5K1/6JstRb3U9fklqp4n6nvXeYioWb+JbRWxb4YOTdbpP0eAkW3p9q0oVeBine1u02GbFZ5n8d8OBaXyz+poYK+4y7bHYgytiAmq989S0oVeTq5j72Go3psvPgEltx3g4uKRBbxn41WTmd0mnmQSBIV1KHpOW/rXgK0CBRFpc9DfnjJPIwP3IxDbzVVTcrQAUtz1bX0rAIyUWXZd4If+Osa/e10NfycrV3JgRTyphVDAsrhCjLci2w2+3kNheZ+d4Tp4pWX7Hd/4lgzZJVm8DSZ1jj7NFQNeuDAkG4K3XJNdOYuy53rNk=,iv:K7QToCCGw42wE7M57LPuairWR/1le25LFMVBOUuhIoY=,tag:dosBDCn1WwZR+88U1tSDRg==,type:str]
 kind: Secret
 metadata:
-    name: tunnel-credentials
+    name: audiobookshelf-container-env 
 sops:
     age:
         - recipient: age15jjwhal370uylrdqnz6jfdefjm0l6k69ausa0rruyshr2utf6suq83g5x8
