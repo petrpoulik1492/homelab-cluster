@@ -2,6 +2,6 @@ This repository is my real-time homelab project based on Flux Push-based deploym
 
 What is it going to look like on hardware side once finished:
 
-Control Plane: Raspberry Pi (This is great mainly in cost effeciency)
+Control Plane: One or Two Raspberry Pi (This is great mainly in cost effeciency)
 
 Two nodes: Dell OptiPlex 7050 Mini PC (This where all the magic happens)
