@@ -41,7 +41,7 @@ spec:
             secretName: audiobookshelf-container-env 
         - name: config
           configMap:
-            name: audiobookshelf-confingmap
+            name: audiobookshelf-configmap
             items:
               - key: config.yaml
                 path: config.yaml
