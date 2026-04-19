@@ -38,10 +38,10 @@ spec:
       volumes:
         - name: creds
           secret:
-            secretName: tunnel-credentials 
+            secretName: audiobookshelf-container-env 
         - name: config
           configMap:
-            name: audiobookshelf-container-env
+            name: audiobookshelf-confingmap
             items:
               - key: config.yaml
                 path: config.yaml
