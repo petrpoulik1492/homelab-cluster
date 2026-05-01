@@ -6,4 +6,3 @@ metadata:
 data:
   index.html: |
 {{ .Files.Get "files/index.html" | indent 4 }}
-

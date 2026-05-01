@@ -119,7 +119,7 @@ spec:
             - name: blog-content
               mountPath: /content
             - name: seed-html
-              mounthPath /seed
+              mounthPath: /seed
         {{- end }}
         {{- if .Values.enableDefaultInitContainers }}
         {{- if .Values.containerSecurityContext.readOnlyRootFilesystem }}
@@ -490,9 +490,10 @@ spec:
         {{- if .Values.persistence.enabled }}
         - name: blog-content
           persistenceVolumeClaim:
-            claimName: {{ include "nginx.fullname" . }}-blog
+            claimName: {{ include "blog-nginx.fullname" . }}-content
         - name: seed-html
-          emptyDir: {}
+          configMap:
+            name: {{ include "blog-nginx.fullname" . }}-html
         {{- end }}
         - name: default
           emptyDir: {}
