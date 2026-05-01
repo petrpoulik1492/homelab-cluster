@@ -55,6 +55,10 @@ spec:
         checksum/context-includes-configuration: {{ include (print $.Template.BasePath "/context-includes-configmap.yaml") . | sha256sum }}
         {{- end }}
     spec:
+      volumes:
+        - name: blog-content
+          persistentVolumeClaim:
+            claimName: {{ include "nginx.fullname" . }}-content
       {{- include "nginx.imagePullSecrets" . | nindent 6 }}
       shareProcessNamespace: {{ .Values.sidecarSingleProcessNamespace }}
       serviceAccountName: {{ template "nginx.serviceAccountName" . }}
@@ -277,6 +281,11 @@ spec:
           image: nginx:latest #{{ include "nginx.image" . }}
           imagePullPolicy: Always #{{ .Values.image.pullPolicy | quote }}
           enabled: true
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: blog-content
+              mounthPath: /usr/share/nginx/html
           {{- if .Values.containerSecurityContext.enabled }}
           securityContext: {{- include "common.compatibility.renderSecurityContext" (dict "secContext" .Values.containerSecurityContext "context" $) | nindent 12 }}
           {{- end }}
@@ -490,10 +499,10 @@ spec:
         {{- if .Values.persistence.enabled }}
         - name: blog-content
           persistenceVolumeClaim:
-            claimName: {{ include "blog-nginx.fullname" . }}-content
+            claimName: {{ include "nginx.fullname" . }}-content
         - name: seed-html
           configMap:
-            name: {{ include "blog-nginx.fullname" . }}-html
+            name: {{ include "nginx.fullname" . }}-html
         {{- end }}
         - name: default
           emptyDir: {}
