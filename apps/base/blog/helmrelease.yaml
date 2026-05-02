@@ -20,4 +20,4 @@ spec:
       storageClass: longhorn
       accessModes:
         - ReadWriteOnce
-    staticSiteConfigmap: blog-nginx
+    staticSiteConfigmap: blog-nginx-html
