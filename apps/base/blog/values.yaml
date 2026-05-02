@@ -465,13 +465,13 @@ autoscaling:
 ## @param extraVolumes Array to add extra volumes
 ##
 extraVolumes:
-  - name: blog-nginx-html-pvc
+  - name: blog-nginx
     persistentVolumeClaim:
       claimName: blog-nginx-html-pvc 
 ## @param extraVolumeMounts Array to add extra mount
 ##
 extraVolumeMounts:
-  - name: blog-nginx-html-pvc
+  - name: blog-nginx
     mountPath: /app 
 ## Pods Service Account
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
