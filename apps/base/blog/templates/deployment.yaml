@@ -56,7 +56,6 @@ spec:
         {{- end }}
     spec:
       {{- include "nginx.imagePullSecrets" . | nindent 6 }}
-      volumes:
       shareProcessNamespace: {{ .Values.sidecarSingleProcessNamespace }}
       serviceAccountName: {{ template "nginx.serviceAccountName" . }}
       automountServiceAccountToken: {{ .Values.automountServiceAccountToken }}
@@ -280,7 +279,7 @@ spec:
           enabled: true
           volumeMounts:
             - name: blog-content
-              mounthPath: /usr/share/nginx/html
+              mounthPath: /app #/usr/share/nginx/html
           {{- if .Values.containerSecurityContext.enabled }}
           securityContext: {{- include "common.compatibility.renderSecurityContext" (dict "secContext" .Values.containerSecurityContext "context" $) | nindent 12 }}
           {{- end }}
@@ -490,7 +489,6 @@ spec:
         {{- if .Values.sidecars }}
         {{- include "common.tplvalues.render" ( dict "value" .Values.sidecars "context" $) | nindent 8 }}
         {{- end }}
-      volumes:
         {{- if .Values.persistence.enabled }}
         - name: blog-content
           persistenceVolumeClaim:
@@ -509,9 +507,11 @@ spec:
             name: {{ .Values.existingStreamServerBlockConfigmap }}
         {{- end }}
         {{- end }}
+      volumes:
         - name: empty-dir
           emptyDir: {}
         {{- if .Values.tls.enabled }}
+        volumes:
         - name: certificate
           secret:
             {{- if .Values.tls.existingSecret }}
