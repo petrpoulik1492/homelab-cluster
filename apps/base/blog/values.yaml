@@ -464,10 +464,15 @@ autoscaling:
   targetMemory: ""
 ## @param extraVolumes Array to add extra volumes
 ##
-extraVolumes: []
+extraVolumes:
+  - name: blog-nginx-html-pvc
+    persistentVolumeClaim:
+      claimName: blog-nginx-html-pvc 
 ## @param extraVolumeMounts Array to add extra mount
 ##
-extraVolumeMounts: []
+extraVolumeMounts:
+  - name: blog-nginx-html-pvc
+    mountPath: /opt/bitnami/nginx/html
 ## Pods Service Account
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 ##
