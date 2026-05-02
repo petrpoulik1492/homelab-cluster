@@ -61,7 +61,7 @@ Return true if a static site should be mounted in the NGINX container
 */}}
 {{- define "nginx.useStaticSite" -}}
 {{- if or .Values.cloneStaticSiteFromGit.enabled .Values.staticSiteConfigmap .Values.staticSitePVC }}
-    {- true -}}
+   {{- true -}}
 {{- end -}}
 {{- end -}}
 
