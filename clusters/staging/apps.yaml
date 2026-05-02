@@ -4,10 +4,10 @@ metadata:
   name: apps
   namespace: flux-system
 spec:
-  interval: 1m0s
-  # dependsOn:
-  #   - name: infra-configs
-  retryInterval: 1m
+  interval: 10m0s
+  dependsOn:
+    - name: infra-configs
+  retryInterval: 2m
   timeout: 5m
   path: ./apps/staging
   sourceRef: 
