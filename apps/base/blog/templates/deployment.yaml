@@ -55,8 +55,8 @@ spec:
         checksum/context-includes-configuration: {{ include (print $.Template.BasePath "/context-includes-configmap.yaml") . | sha256sum }}
         {{- end }}
     spec:
-      volumes:
       {{- include "nginx.imagePullSecrets" . | nindent 6 }}
+      volumes:
       shareProcessNamespace: {{ .Values.sidecarSingleProcessNamespace }}
       serviceAccountName: {{ template "nginx.serviceAccountName" . }}
       automountServiceAccountToken: {{ .Values.automountServiceAccountToken }}
