@@ -466,8 +466,8 @@ autoscaling:
 ##
 extraVolumes:
   - name: blog-nginx-html-pvc
-      persistentVolumeClaim:
-        claimName: blog-nginx-html-pvc 
+    persistentVolumeClaim:
+      claimName: blog-nginx-html-pvc 
 ## @param extraVolumeMounts Array to add extra mount
 ##
 extraVolumeMounts:
