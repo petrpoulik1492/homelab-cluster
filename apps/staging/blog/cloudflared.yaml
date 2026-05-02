@@ -57,7 +57,7 @@ data:
     no-autoupdate: true
     ingress:
     - hostname: blog.petrpoulik1492.com
-      service: http://blog:8080 
+      service: http://blog-nginx:8080 
     - hostname: hello.example.com
       service: hello_world
     - service: http_status:404
