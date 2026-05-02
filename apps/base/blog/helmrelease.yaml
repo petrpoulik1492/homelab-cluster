@@ -15,7 +15,7 @@ spec:
       interval: 1m
   values:
     persistence:
-      enabled: true
+      enabled: false 
       size: 1Gi
       storageClass: longhorn
       accessModes:
