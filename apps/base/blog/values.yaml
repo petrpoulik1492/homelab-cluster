@@ -9,6 +9,7 @@ staticSiteConfigmap: blog-nginx
 ## This creates PVC to add extra content to my blog later
 persistence:
   enabled: true
+  storageClass: longhorn
   accessModes:
     - ReadWriteOnce
   size: 1Gi
