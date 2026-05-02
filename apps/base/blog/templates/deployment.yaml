@@ -281,8 +281,6 @@ spec:
           image: nginx:latest #{{ include "nginx.image" . }}
           imagePullPolicy: Always #{{ .Values.image.pullPolicy | quote }}
           enabled: true
-          ports:
-            - containerPort: 80
           volumeMounts:
             - name: blog-content
               mounthPath: /usr/share/nginx/html
