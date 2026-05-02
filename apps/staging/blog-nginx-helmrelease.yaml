@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-apiVersion: helm.toolkit.fluxcd.io/v2
-=======
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
->>>>>>> 511a0a0 (feat: flux path update)
 kind: HelmRelease
 metadata:
   name: blog-nginx
