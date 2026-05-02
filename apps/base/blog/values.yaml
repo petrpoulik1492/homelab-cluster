@@ -8,7 +8,7 @@ staticSiteConfigmap: blog-nginx-html
 ## Current available global Docker image parameters: imageRegistry, imagePullSecrets and storageClass
 ## This creates PVC to add extra content to my blog later
 persistence:
-  enabled: true
+  enabled: false 
   storageClass: longhorn
   accessModes:
     - ReadWriteOnce

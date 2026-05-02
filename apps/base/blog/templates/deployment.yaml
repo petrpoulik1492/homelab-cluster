@@ -56,9 +56,6 @@ spec:
         {{- end }}
     spec:
       volumes:
-        - name: blog-content
-          persistentVolumeClaim:
-            claimName: {{ include "nginx.fullname" . }}-content
       {{- include "nginx.imagePullSecrets" . | nindent 6 }}
       shareProcessNamespace: {{ .Values.sidecarSingleProcessNamespace }}
       serviceAccountName: {{ template "nginx.serviceAccountName" . }}
