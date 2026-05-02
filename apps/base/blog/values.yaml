@@ -472,7 +472,7 @@ extraVolumes:
 ##
 extraVolumeMounts:
   - name: blog-nginx-html-pvc
-    mountPath: /opt/bitnami/nginx/html
+    mountPath: /app 
 ## Pods Service Account
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 ##
